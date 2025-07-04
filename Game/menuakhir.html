@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROUTE</title>
+  <!-- Favicon -->
+    <link rel="icon" href="../assets/logoGame.png" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logoGame.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logoGame.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logoGame.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/logoGame.png">
+    <link rel="manifest" href="../assets/logoGame.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffd94c;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      padding: 0 0;
+    }
+
+    .icon {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .icon img {
+      width: 150px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-align: center
+    }
+
+    .options {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      text-align: center
+    }
+
+    .options a {
+      display: block;
+      margin: 15px;
+      text-decoration: none;
+      color: #b71c1c;
+      transition: transform 0.2s;
+    }
+
+    .options a:hover {
+      color: #fff;
+      transform: scale(1.1);
+      text-shadow: 0 0 10px #b71c1c;
+    }
+
+    .garis {
+    width: 80%;
+    height: 2px;
+    margin: 62px auto 0; /* atas: 40px, kanan-kiri auto, bawah 0 */
+    margin-left: 275px;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 16px;
+      margin-top: 60px;
+      text-align: center
+    }
+
+    .bushes1 {
+      position: absolute;
+      top: 33%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: -1;
+    }
+
+    .bushes1 img {
+      width: 300px;
+    }
+    .bushes2 {
+      position: absolute;
+      top: 41%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: -1;
+    }
+
+    .bushes2 img {
+      width: 300px;
+      margin-left: 77%;
+    }
+    .fade-out {
+  animation: fadeOut 0.8s ease forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+  .fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+  </style>
+</head>
+<body id="page-body" class="fade-in">
+  <div class="container">
+    <div class="icon">
+      <img src="../assets/logoGame.png" alt="icon" />
+    </div>
+    <h1>MAU ULANG LAGI?</h1>
+    <div class="options">
+      <a href="#" id="link">&gt; Yesss, Ulang lagi</a>
+      <a href="thanks.html" id="link-thanks">&gt; Kapan-kapan dulu dehh</a>
+    </div>
+    <div href="#" class="garis">-------------------------------------------------------------------------------------------------------------------</div>
+    <div class="quote">
+      Belanda itu datengnya ngaku-ngaku “dagang doang” Awalnya VOC cuma mau dagang rempah, <br>
+       eh lama-lama malah jadi penguasa. Kayak temen numpang nginep, besoknya bawa koper
+    </div>
+  </div>
+  <div class="bushes1">
+    <img src="../assets/semak1.png" alt="semak kiri" class="SemakKiri" />
+  </div>
+  <div class="bushes2">
+    <img src="../assets/semak2.png" alt="semak kanan" class="SemakKanan"/>
+  </div>
+
+  <script>
+  function addTransitionAndRedirect(id, url) {
+    const body = document.getElementById('page-body');
+    const link = document.getElementById(id);
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = url;
+      }, 800);
+    });
+  }
+
+  // Ambil data dari localStorage
+  const savedLevel = localStorage.getItem("finalLevel"); // "pelajar" atau "mahasiswa"
+  const savedName = localStorage.getItem("finalUsername"); // misal: "Andi"
+  if (savedName) {
+    localStorage.setItem("playerName", savedName); // Set ulang nama agar terbaca game.html
+  }
+
+  // Redirect tombol ulang lagi
+  const ulangLink = document.getElementById("link");
+  ulangLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.getElementById("page-body").classList.add("fade-out");
+    setTimeout(() => {
+      window.location.href = `../game.html?level=${savedLevel}`;
+    }, 800);
+  });
+
+  // Tombol "kapan-kapan dulu"
+  addTransitionAndRedirect('link-thanks', 'thanks.html');
+</script>
+
+
+</body>
+</html>

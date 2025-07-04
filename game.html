@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROUTE</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/logoGame.png" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/logoGame.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/logoGame.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logoGame.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/logoGame.png">
+    <link rel="manifest" href="assets/logoGame.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body id="page-body" class="fade-in">
+    <!-- Quiz Screen -->
+    <div id="quizScreen" class="hidden">
+        <div class="container">
+            <div class="left">
+                <!-- Quiz info -->
+                <div class="quiz-info">
+                    <div class="info-box">
+                        <i class="fas fa-user"></i>
+                        <span id="quizUsername">Player</span>
+                    </div>
+                    <div class="info-box">
+                        <i class="fas fa-trophy"></i>
+                        <span id="scoreDisplay">0</span> Poin
+                    </div>
+                </div>
+                
+                <!-- Level indicator -->
+                <div class="level-indicator" id="levelIndicator">
+                    <i class="fas fa-layer-group"></i>
+                    <span id="currentLevel">Level:</span>
+                </div>
+                
+                <!-- Timer -->
+                <div class="timer" id="timer">30</div>
+                
+                <!-- Question content -->
+                <div class="question-content-container">
+                    <div class="question-number">Pertanyaan <span id="currentQuestion">1</span>/<span id="totalQuestions">10</span></div>
+                    <div class="question-text" id="questionText">Memuat pertanyaan...</div>
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Options will be filled by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Progress bar -->
+                <div class="progress-container">
+                    <div class="progress-bar" id="quizProgress"></div>
+                </div>
+            </div>
+            
+            <div class="right">
+                <img src="assets/soalmahasiswa1.png" id="soekarnoImage" alt="Question illustration">
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrong Answer Feedback Screen -->
+    <div id="wrongFeedback" class="feedback-screen wrong-feedback">
+        <div class="feedback-container" role="main">
+            <div class="feedback-left">
+                <p class="jawaban" id="userAnswerText"></p>
+                <p class="explanation" id="explanationText"></p>
+                <p class="text-bold" id="correctAnswerText"></p>
+                <button class="btn-next" id="nextFromWrong" aria-label="Next">→</button>
+            </div>
+            <div class="feedback-right">
+                <img src="./assets/tengkorak.png" alt="Wrong answer character" class="character" draggable="false">
+                <div class="health-bar-container" aria-label="Health bar showing minus 10 health">
+                    <img src="https://storage.googleapis.com/a1aa/image/2ad2d054-f211-4cf2-d574-eb8256293a31.jpg" alt="Pixel art red heart icon" class="heart-icon" width="32" height="32" draggable="false">
+                    <div class="health-bar-bg" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+                        <div class="health-bar-fill"></div>
+                    </div>
+                    <span class="health-text">-10</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Correct Answer Feedback Screen -->
+    <div id="correctFeedback" class="feedback-screen correct-feedback">
+        <div class="feedback-container" role="main">
+            <div class="feedback-left">
+                <p class="jawaban" id="correctAnswerTitle"></p>
+                <p class="explanation" id="correctExplanationText"></p>
+                <p class="text-bold" id="additionalInfoText"></p>
+                <button class="btn-next" id="nextFromCorrect" aria-label="Next">→</button>
+            </div>
+            <div class="feedback-right">
+                <img src="./assets/happy.png" alt="Correct answer character" class="character" draggable="false">
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+</html>

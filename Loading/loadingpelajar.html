@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ROUTE</title>
+  <!-- Favicon -->
+    <link rel="icon" href="../assets/logoGame.png" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logoGame.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logoGame.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logoGame.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/logoGame.png">
+    <link rel="manifest" href="../assets/logoGame.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fffaf0; /* warna mirip latar gambar */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100vh;
+      padding: 0 5%;
+    }
+
+    .left-content {
+      max-width: 100%;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      margin-top: 350px;
+    }
+
+    .subline {
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+    }
+
+    .subline::after {
+      content: " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _";
+      font-weight: normal;
+      color: #000;
+    }
+
+    .description {
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 100%;
+      margin-top: 1rem;
+    }
+
+    .character {
+      max-width: 300px;
+    }
+
+    .character img {
+      width: 100%;
+      height: auto;
+      image-rendering: pixelated;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .left-content {
+        max-width: 100%;
+      }
+
+      .character {
+        max-width: 180px;
+        margin-top: 2rem;
+      }
+
+      .subline::after {
+        content: "";
+      }
+    }
+    .fade-in {
+    animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+  </style>
+</head>
+<body id="page-body" class="fade-in">
+  <div class="left-content">
+    <div class="title">OK
+        <div class="subline">PELAJAR</div>
+    </div>
+    <div class="description">
+      Born in 1901, Soekarno rose as a fearless voice against colonial rule. He wasn't just a politician he was a visionary who united a diverse archipelago under one flag, one language, and one spirit.
+    </div>
+  </div>
+
+  <div class="character">
+    <img src="../assets/soekarno-lari.png" alt="Soekarno">
+  </div>
+
+   <script>
+    // Ambil parameter level
+    const params = new URLSearchParams(window.location.search);
+    const level = params.get("level");
+
+    // Delay 3 detik lalu redirect ke game
+    setTimeout(() => {
+      window.location.href = `../game.html?level=${level}`;
+    }, 3000); // 3 detik
+  </script>
+
+</body>
+</html>

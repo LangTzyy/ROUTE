@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ROUTE</title>
+  <!-- Favicon -->
+    <link rel="icon" href="../assets/logoGame.png" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logoGame.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logoGame.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logoGame.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/logoGame.png">
+    <link rel="manifest" href="../assets/logoGame.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:ital,wght@1,400&display=swap');
+
+    body {
+      margin: 0;
+      background-color: rgb(29, 46, 84);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 24px;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+      opacity: 0; /* Start with invisible content */
+      animation: fadeIn 1.5s ease-in forwards; /* Fade-in animation */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.1;
+      margin: 0 auto;
+    }
+
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.125rem;
+      margin-top: 1.5rem;
+    }
+
+    .logo {
+      max-width: 200px;
+      margin-bottom: 2rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      h1 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="../assets/logoAsia.png" alt="Institute Asia Teknologi" class="logo">
+    <h1>TERIMA KASIH SUDAH MEMAINKAN GAME KITA!!</h1>
+    <p>See you for our next project game.</p>
+  </div>
+
+  <script>
+    // Redirect to index.html after 5 seconds (5000 milliseconds)
+    setTimeout(function() {
+      window.location.href = "../index.html";
+    }, 5000);
+  </script>
+</body>
+</html>

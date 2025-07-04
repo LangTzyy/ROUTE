@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROUTE</title>
+  <!-- Favicon -->
+    <link rel="icon" href="../assets/logoGame.png" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/logoGame.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/logoGame.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/logoGame.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/logoGame.png">
+    <link rel="manifest" href="../assets/logoGame.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffd94c;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      padding: 0 0;
+    }
+
+    .icon {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .icon img {
+      width: 150px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .options {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .options a {
+      display: block;
+      margin: 15px;
+      text-decoration: none;
+      color: #b71c1c;
+      transition: transform 0.2s;
+    }
+
+    .options a:hover {
+      color: #fff;
+      transform: scale(1.1);
+      text-shadow: 0 0 10px #b71c1c;
+    }
+
+    .garis {
+      width: 80%;
+      height: 2px;
+      margin: 62px auto 0;
+      margin-left: 275px;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 16px;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .quote::after {
+      content: "🔥";
+    }
+
+    .bushes1 {
+      position: absolute;
+      top: 33%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: -1;
+    }
+
+    .bushes1 img {
+      width: 300px;
+    }
+
+    .bushes2 {
+      position: absolute;
+      top: 41%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: -1;
+    }
+
+    .bushes2 img {
+      width: 300px;
+      margin-left: 77%;
+    }
+
+    .fade-out {
+      animation: fadeOut 0.8s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body id="page-body" class="fade-in">
+  <div class="container">
+    <div class="icon">
+      <img src="../assets/logoGame.png" alt="icon" />
+    </div>
+    <h1>PILIH LEVEL DULU YUK</h1>
+    <div class="options">
+      <a href="../Loading/loadingmahasiswa.html?level=mahasiswa" id="link-mahasiswa">&gt; KAMU MAHASISWA ?</a>
+      <a href="../Loading/loadingpelajar.html?level=pelajar" id="link-pelajar">&gt; KAMU PELAJAR ?</a>
+    </div>
+    <div class="garis">-------------------------------------------------------------------------------------------------------------------</div>
+    <div class="quote">
+      Tahun 1928, anak-anak muda dari berbagai suku & daerah ngumpul dan bilang: <br>
+      “Kita satu bangsa, satu bahasa, satu tanah air: Indonesia!”
+    </div>
+  </div>
+
+  <div class="bushes1">
+    <img src="../assets/semak1.png" alt="semak kiri" class="SemakKiri" />
+  </div>
+  <div class="bushes2">
+    <img src="../assets/semak2.png" alt="semak kanan" class="SemakKanan" />
+  </div>
+
+  <script>
+    function addTransitionAndRedirect(id) {
+      const body = document.getElementById('page-body');
+      const link = document.getElementById(id);
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const url = link.getAttribute('href');
+        body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = url;
+        }, 800); // Durasi animasi fade-out
+      });
+    }
+
+    addTransitionAndRedirect('link-mahasiswa');
+    addTransitionAndRedirect('link-pelajar');
+  </script>
+
+</body>
+</html>
